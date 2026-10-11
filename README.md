@@ -2,7 +2,7 @@
 Interaktive, kinderfreundliche Designauswahl: zwei Ranzen nebeneinander, Abstimmung per Klick oder Pfeiltasten, daraus Platz 1 bis Platz 3.
 
 ## Funktionsumfang
-- 29 kuratierte Designs: 24 aus 2026, 5 aus 2027
+- 21 kuratierte Designs: 17 aus 2026, 4 aus 2027
 - Beckmann Classic 22 L sowie ergobag cubo, cubo light und pack
 - Jahrgangs- und Herstellerfilter, Rueckgaengig, Vollbild, Top-3-Ausgabe
 - Ergebnis-Link mit den 3 stabilen Modell-IDs, auf anderen Geraeten und dem TV oeffnen
