@@ -52,6 +52,87 @@ select{background:#213b5e;border:1px solid #6a8db5;color:white;padding:13px 15px
 .result a{color:#0b5ca1;font-weight:700;font-size:12px}
 footer{color:#b3c6db;text-align:center;font-size:12px;padding:15px 5px}
 #notice{color:var(--teal);font-size:14px;text-align:center;margin:10px}
+
+/* Volle Bildflaeche im Duell: kein Raumverlust durch Layout-Limits. */
+body.duel-active{min-height:100dvh;overflow:hidden}
+body.duel-active #app{
+ width:100%;max-width:none;height:100dvh;max-height:100dvh;
+ margin:0;padding:clamp(5px,0.8vw,12px);
+ display:flex;flex-direction:column;overflow:hidden
+}
+body.duel-active header{flex:0 0 auto;min-height:0}
+body.duel-active .logo{font-size:clamp(15px,1.7vw,24px)}
+body.duel-active .meta{font-size:11px;padding:3px 9px}
+body.duel-active .hero{flex:0 0 auto;margin:2px 0 3px}
+body.duel-active .hero .eyebrow{font-size:10px}
+body.duel-active .hero h1{font-size:clamp(19px,2.1vw,31px);margin:2px 0;line-height:1.05}
+body.duel-active .hero .subtitle{display:none}
+body.duel-active #match{display:flex;flex:1 1 auto;min-height:0;flex-direction:column}
+body.duel-active .match-grid{
+ flex:1 1 auto;min-height:0;width:100%;max-width:none;
+ margin:3px 0 0;gap:clamp(5px,0.8vw,14px);
+ grid-template-columns:repeat(2,minmax(0,1fr))
+}
+body.duel-active .choice{
+ height:100%;min-height:0;border-width:3px;border-radius:12px;
+ transform:none
+}
+body.duel-active .photo{
+ flex:1 1 auto;height:auto;min-height:0;padding:0;
+ overflow:hidden;background:#fff
+}
+body.duel-active .photo img{
+ width:100%;height:100%;max-width:100%;max-height:100%;
+ object-fit:contain;object-position:center center
+}
+body.duel-active .choice .name{
+ flex:0 0 auto;min-height:0;font-size:clamp(15px,1.75vw,26px);
+ padding:6px 3px 0;line-height:1.12
+}
+body.duel-active .choice .info{
+ flex:0 0 auto;font-size:clamp(11px,1vw,15px);
+ padding:2px 3px 7px
+}
+body.duel-active .choice .vote{
+ flex:0 0 auto;padding:clamp(8px,1vh,15px) 3px;
+ font-size:clamp(15px,1.8vw,25px)
+}
+body.duel-active .progress{
+ flex:0 0 auto;max-width:none;width:100%;margin:4px 0 0;
+ gap:3px;font-size:12px
+}
+body.duel-active .track{height:5px}
+body.duel-active #app>.bottom{
+ flex:0 0 auto;margin:5px 0 0;gap:8px
+}
+body.duel-active #app>.bottom .btn{
+ padding:5px 10px;font-size:12px;min-height:34px
+}
+body.duel-active footer{display:none}
+body.duel-active #notice:empty{display:none}
+body.duel-active #notice{margin:0}
+@media(max-width:670px){
+ body.duel-active #app{padding:5px}
+ body.duel-active .logo{font-size:14px}
+ body.duel-active .meta{font-size:10px}
+ body.duel-active .hero .eyebrow{display:none}
+ body.duel-active .hero h1{font-size:18px}
+ body.duel-active .match-grid{gap:5px}
+ body.duel-active .choice{border-width:2px;border-radius:8px}
+ body.duel-active .choice .name{font-size:clamp(14px,4vw,18px);padding:4px 2px 0}
+ body.duel-active .choice .info{font-size:10px;padding:2px 2px 5px}
+ body.duel-active .choice .vote{font-size:15px;padding:10px 2px}
+ body.duel-active .progress{font-size:11px}
+ body.duel-active #app>.bottom .btn{font-size:11px;min-height:34px;padding:5px 7px}
+}
+@media(max-height:520px){
+ body.duel-active .hero .eyebrow,
+ body.duel-active .progress .track{display:none}
+ body.duel-active .hero h1{font-size:17px}
+ body.duel-active .progress{margin:2px 0 0}
+ body.duel-active .choice .info{padding-bottom:2px}
+}
+
 [hidden]{display:none!important}
 @media(max-width:670px){main{padding:10px}.match-grid{gap:8px}.photo{height:clamp(170px,35vh,290px);padding:3px}.choice{border-width:3px;border-radius:12px}.name{font-size:16px}.vote{font-size:15px;padding:13px 1px}.info{font-size:11px}.results{gap:8px;grid-template-columns:repeat(2,minmax(0,1fr))}.result img{height:125px}.btn{font-size:13px}}
 </style>
@@ -154,6 +235,7 @@ function imgInto(id,b){
 }
 function render(){
  const start=state.phase==="intro",end=state.phase==="done";
+ document.body.classList.toggle("duel-active",!start&&!end);
  $("intro").hidden=!start;$("match").hidden=start||end;$("finish").hidden=!end;
  $("counter").textContent=(state.items.length||products.length)+" Designs · 2026 + 2027";
  $("undo").disabled=history.length===0;
