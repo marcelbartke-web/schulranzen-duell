@@ -1,11 +1,11 @@
 # Schulranzen-Duell 2026/2027
-Interaktive, kinderfreundliche Designauswahl: zwei Ranzen nebeneinander, Abstimmung per Klick oder Pfeiltasten, daraus Platz 1 bis Platz 3.
+Interaktive, kinderfreundliche Designauswahl: zwei Ranzen nebeneinander, Abstimmung per Klick oder Pfeiltasten, daraus Platz 1 bis Platz 5 (bei weniger als 5 Kandidaten entsprechend weniger).
 
 ## Funktionsumfang
 - 21 kuratierte Designs: 17 aus 2026, 4 aus 2027
 - Beckmann Classic 22 L sowie ergobag cubo, cubo light und pack
-- Jahrgangs- und Herstellerfilter, Rueckgaengig, Vollbild, Top-3-Ausgabe
-- Ergebnis-Link mit den 3 stabilen Modell-IDs, auf anderen Geraeten und dem TV oeffnen
+- Jahrgangs- und Herstellerfilter, Rueckgaengig, Vollbild, Top-5-Ausgabe
+- Ergebnis-Link mit den 5 stabilen Modell-IDs, auf anderen Geraeten und dem TV oeffnen
 - Rein clientseitig und ohne Tracking / Anmeldung
 - Ergebnis/Spielstand bleibt lokal im jeweiligen Browser
 - Original-Produktfotos werden von verlinkten Hersteller- oder Haendler-Websites geladen, deren Erreichbarkeit kann sich aendern.
